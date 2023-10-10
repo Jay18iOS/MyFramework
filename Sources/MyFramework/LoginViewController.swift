@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 open class LoginViewController: UIViewController, ViewFromNib {
 
