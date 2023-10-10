@@ -10,7 +10,7 @@ import RealmSwift
 
 public struct LoginSDK{
     
-    static func validateLoginData(email: String, pw: String) -> String?{
+    public static func validateLoginData(email: String, pw: String) -> String?{
         if email.trimmingCharacters(in: .whitespaces).count == 0{
             return "Please enter email"
         }
@@ -25,7 +25,7 @@ public struct LoginSDK{
 
     public static func loginUser(email: String, password: String) -> Result<User, UserRegistrationError> {
          // Validate input (e.g., check for empty fields)
-        let errorStr = validateLoginData(email: email, pw: password)
+        let errorStr = LoginSDK.validateLoginData(email: email, pw: password)
          if errorStr == nil{
              //login user
              do {
