@@ -17,7 +17,7 @@ public class LoginViewController: UIViewController {
             return textField
         }()
     
-    let passwordTextField: UITextField = {
+    public let passwordTextField: UITextField = {
            let textField = UITextField()
            textField.placeholder = "Password"
            textField.isSecureTextEntry = true
@@ -26,7 +26,7 @@ public class LoginViewController: UIViewController {
            return textField
        }()
        
-       let showHidePasswordButton: UIButton = {
+    public let showHidePasswordButton: UIButton = {
            let button = UIButton(type: .system)
            button.setTitle("Show", for: .normal)
            button.addTarget(self, action: #selector(showHidePasswordButtonTapped), for: .touchUpInside)
@@ -34,7 +34,7 @@ public class LoginViewController: UIViewController {
            return button
        }()
        
-       let loginButton: UIButton = {
+    public let loginButton: UIButton = {
            let button = UIButton(type: .system)
            button.setTitle("Login", for: .normal)
            button.backgroundColor = .blue
@@ -45,14 +45,14 @@ public class LoginViewController: UIViewController {
            return button
        }()
        
-       let newUserLabel: UILabel = {
+    public let newUserLabel: UILabel = {
            let label = UILabel()
            label.text = "New User?"
            label.translatesAutoresizingMaskIntoConstraints = false
            return label
        }()
        
-       let registerButton: UIButton = {
+    public let registerButton: UIButton = {
            let button = UIButton(type: .system)
            button.setTitle("Register", for: .normal)
            //button.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
