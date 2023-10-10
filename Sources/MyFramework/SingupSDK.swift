@@ -10,7 +10,7 @@ import RealmSwift
 
 public struct SignupSDK {
     
-    public func validate(name: String, email: String, phoneNumber: String, password: String, confirmPw: String) -> String? {
+     static func validate(name: String, email: String, phoneNumber: String, password: String, confirmPw: String) -> String? {
         if name.trimmingCharacters(in: .whitespaces).count == 0{
             return "Please enter name"
         }
@@ -32,7 +32,7 @@ public struct SignupSDK {
         return nil
     }
     
-     public func registerUser(name: String, email: String, mobile: String, password: String, confirmPw: String) -> Result<User, UserRegistrationError> {
+     public static func registerUser(name: String, email: String, mobile: String, password: String, confirmPw: String) -> Result<User, UserRegistrationError> {
          let errorStr = validate(name: name, email: email, phoneNumber: mobile, password: password, confirmPw: confirmPw)
          if errorStr == nil{
              //registre user
