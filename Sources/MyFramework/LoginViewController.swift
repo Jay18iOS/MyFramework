@@ -17,6 +17,47 @@ public class LoginViewController: UIViewController {
             return textField
         }()
     
+    let passwordTextField: UITextField = {
+           let textField = UITextField()
+           textField.placeholder = "Password"
+           textField.isSecureTextEntry = true
+           textField.borderStyle = .roundedRect
+           textField.translatesAutoresizingMaskIntoConstraints = false
+           return textField
+       }()
+       
+       let showHidePasswordButton: UIButton = {
+           let button = UIButton(type: .system)
+           button.setTitle("Show", for: .normal)
+           button.addTarget(self, action: #selector(showHidePasswordButtonTapped), for: .touchUpInside)
+           button.translatesAutoresizingMaskIntoConstraints = false
+           return button
+       }()
+       
+       let loginButton: UIButton = {
+           let button = UIButton(type: .system)
+           button.setTitle("Login", for: .normal)
+           button.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+           button.translatesAutoresizingMaskIntoConstraints = false
+           return button
+       }()
+       
+       let newUserLabel: UILabel = {
+           let label = UILabel()
+           label.text = "New User?"
+           label.translatesAutoresizingMaskIntoConstraints = false
+           return label
+       }()
+       
+       let registerButton: UIButton = {
+           let button = UIButton(type: .system)
+           button.setTitle("Register", for: .normal)
+           //button.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
+           button.translatesAutoresizingMaskIntoConstraints = false
+           return button
+       }()
+       
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -26,16 +67,51 @@ public class LoginViewController: UIViewController {
         
         // Add subviews to the view
         view.addSubview(emailTextField)
+        view.addSubview(passwordTextField)
+        view.addSubview(showHidePasswordButton)
+        view.addSubview(loginButton)
+        view.addSubview(newUserLabel)
+        view.addSubview(registerButton)
         
         // Layout constraints
         NSLayoutConstraint.activate([
             emailTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             emailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             emailTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            
+            passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 20),
+            passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            passwordTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            
+            showHidePasswordButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 8),
+            showHidePasswordButton.trailingAnchor.constraint(equalTo: passwordTextField.trailingAnchor),
+            
+            loginButton.topAnchor.constraint(equalTo: showHidePasswordButton.bottomAnchor, constant: 20),
+            loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            newUserLabel.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20),
+            newUserLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            registerButton.topAnchor.constraint(equalTo: newUserLabel.bottomAnchor, constant: 8),
+            registerButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
     }
 
-
+    @objc func showHidePasswordButtonTapped() {
+            // Toggle the password visibility
+            passwordTextField.isSecureTextEntry.toggle()
+            showHidePasswordButton.setTitle(passwordTextField.isSecureTextEntry ? "Show" : "Hide", for: .normal)
+        }
+        
+        @objc func loginButtonTapped() {
+            // Implement your login logic here
+        }
+        
+//        @objc func registerButtonTapped() {
+//            // Implement your registration logic here
+//
+//            
+//        }
     
     /*func validate(name: String, email: String, phoneNumber: String, password: String, confirmPw: String) -> String? {
         if name.trimmingCharacters(in: .whitespaces).count == 0{
