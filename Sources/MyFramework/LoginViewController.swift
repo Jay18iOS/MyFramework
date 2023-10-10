@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class LoginViewController: UIViewController, ViewFromNib {
+open class LoginViewController: UIViewController, ViewFromNib {
 
     @IBOutlet weak var txtPassword: UITextField!{
         didSet {
@@ -35,7 +35,7 @@ public class LoginViewController: UIViewController, ViewFromNib {
     public var buttonTitle : String = "Login"
     
    
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         // Do any additional setup after loading the view.
