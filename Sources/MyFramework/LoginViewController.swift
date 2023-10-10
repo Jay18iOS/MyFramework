@@ -37,6 +37,9 @@ public class LoginViewController: UIViewController {
        let loginButton: UIButton = {
            let button = UIButton(type: .system)
            button.setTitle("Login", for: .normal)
+           button.backgroundColor = .blue
+           button.frame.size.height = 50
+           button.frame.size.width = 200
            button.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
            button.translatesAutoresizingMaskIntoConstraints = false
            return button
@@ -110,7 +113,7 @@ public class LoginViewController: UIViewController {
 //        @objc func registerButtonTapped() {
 //            // Implement your registration logic here
 //
-//            
+//
 //        }
     
     /*func validate(name: String, email: String, phoneNumber: String, password: String, confirmPw: String) -> String? {
