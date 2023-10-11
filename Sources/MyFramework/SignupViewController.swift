@@ -123,12 +123,13 @@ public class SignupViewController: UIViewController {
             self.passwordTextField.resignFirstResponder()
             self.confirmPasswordTextField.resignFirstResponder()
             
-            Helper.globalToastAlert(controller: self, msg: "User registered successfully", seconds: 3.0) {
-                // Handle any additional actions after the toast is shown (e.g., dismiss the view controller)
-                self.dismiss(animated: true)
+            DispatchQueue.main.async {
+                Helper.globalToastAlert(controller: self, msg: "User registered successfully", seconds: 3.0) {
+                    // Handle any additional actions after the toast is shown (e.g., dismiss the view controller)
+                    self.dismiss(animated: true)
+                }
             }
-            
-            self.dismiss(animated: true)
+        
         case .failure(let error):
             print("Registration error: \(error.errorDescription)")
             self.errorString = error.errorDescription ?? "error"
