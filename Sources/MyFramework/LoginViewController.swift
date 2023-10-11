@@ -12,6 +12,7 @@ public class LoginViewController: UIViewController {
     public let emailTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Email"
+        textField.frame.size.height = 40
         textField.keyboardType = .emailAddress
         textField.borderStyle = .roundedRect
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -21,6 +22,7 @@ public class LoginViewController: UIViewController {
     public let passwordTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Password"
+        textField.frame.size.height = 40
         textField.isSecureTextEntry = true
         textField.borderStyle = .roundedRect
         textField.translatesAutoresizingMaskIntoConstraints = false
