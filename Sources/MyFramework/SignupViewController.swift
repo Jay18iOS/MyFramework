@@ -102,10 +102,8 @@ public class SignupViewController: UIViewController {
         ])
         
         // Create a tap gesture recognizer
-           let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-
-           // Add the tap gesture recognizer to the view
-           view.addGestureRecognizer(tapGesture)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        view.addGestureRecognizer(tapGesture)
     }
     
     @objc func registerButtonTapped() {
@@ -130,7 +128,7 @@ public class SignupViewController: UIViewController {
                     self.dismiss(animated: true)
                 }
             }
-        
+            
         case .failure(let error):
             print("Registration error: \(error.errorDescription)")
             self.nameTextField.resignFirstResponder()

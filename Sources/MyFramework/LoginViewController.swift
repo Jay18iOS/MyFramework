@@ -8,7 +8,7 @@
 import UIKit
 
 public class LoginViewController: UIViewController {
-
+    
     public let emailTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Email"
@@ -30,7 +30,7 @@ public class LoginViewController: UIViewController {
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
-       
+    
     public let showHidePasswordButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Show", for: .normal)
@@ -39,7 +39,7 @@ public class LoginViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-       
+    
     public let loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Login", for: .normal)
@@ -50,7 +50,7 @@ public class LoginViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-       
+    
     public let newUserLabel: UILabel = {
         let label = UILabel()
         label.text = "New User?"
@@ -58,7 +58,7 @@ public class LoginViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-       
+    
     public let registerButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Register", for: .normal)
@@ -68,8 +68,9 @@ public class LoginViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-       
+    
     public var user : User?
+    var loginCompletion: ((User) -> Void)?
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,14 +111,18 @@ public class LoginViewController: UIViewController {
             registerButton.leadingAnchor.constraint(equalTo: newUserLabel.trailingAnchor, constant: 8),
             
         ])
+        
+        // Create a tap gesture recognizer
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        view.addGestureRecognizer(tapGesture)
     }
-
+    
     @objc func showHidePasswordButtonTapped() {
         // Toggle the password visibility
         passwordTextField.isSecureTextEntry.toggle()
         showHidePasswordButton.setTitle(passwordTextField.isSecureTextEntry ? "Show" : "Hide", for: .normal)
     }
-        
+    
     @objc func loginButtonTapped() {
         // Implement your login logic here
         let loginResult = LoginSDK.loginUser(email: self.emailTextField.text!, password: self.passwordTextField.text!)
@@ -125,22 +130,25 @@ public class LoginViewController: UIViewController {
         case .success(let user):
             print("User login successfully: \(user)")
             self.user = user
-    
+            
             self.emailTextField.resignFirstResponder()
             self.passwordTextField.resignFirstResponder()
             
+            // Call the completion handler with the user object
+            loginCompletion?(user)
+            
         case .failure(let error):
             print("login error: \(error.errorDescription)")
-           
+            
             self.emailTextField.resignFirstResponder()
             self.passwordTextField.resignFirstResponder()
-    
+            
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 Helper.globalToastAlert(controller: self, msg: error.errorDescription ?? "error occured", seconds: 3.0)
             }
         }
     }
-        
+    
     @objc func registerButtonTapped() {
         // Implement your registration logic here
         let navigationController = UINavigationController()
@@ -151,6 +159,11 @@ public class LoginViewController: UIViewController {
         self.present(navigationController, animated: true, completion: nil)
     }
     
-   
+    @objc func handleTap() {
+        // Dismiss the keyboard
+        view.endEditing(true)
+    }
+    
+    
 }
 
