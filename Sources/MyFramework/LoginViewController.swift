@@ -55,7 +55,7 @@ public class LoginViewController: UIViewController {
     public let registerButton: UIButton = {
            let button = UIButton(type: .system)
            button.setTitle("Register", for: .normal)
-           //button.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
+           button.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
            button.translatesAutoresizingMaskIntoConstraints = false
            return button
        }()
