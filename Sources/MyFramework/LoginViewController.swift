@@ -12,6 +12,7 @@ public class LoginViewController: UIViewController {
     public let emailTextField: UITextField = {
             let textField = UITextField()
             textField.placeholder = "Email"
+            textField.keyboardType = .emailAddress
             textField.borderStyle = .roundedRect
             textField.translatesAutoresizingMaskIntoConstraints = false
             return textField
