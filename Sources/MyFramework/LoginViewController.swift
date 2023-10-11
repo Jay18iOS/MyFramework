@@ -10,22 +10,24 @@ import UIKit
 public class LoginViewController: UIViewController {
 
     public let emailTextField: UITextField = {
-            let textField = UITextField()
-            textField.placeholder = "Email"
-            textField.keyboardType = .emailAddress
-            textField.borderStyle = .roundedRect
-            textField.translatesAutoresizingMaskIntoConstraints = false
-            return textField
-        }()
+        let textField = UITextField()
+        textField.placeholder = "Email"
+        textField.backgroundColor = UIColor(named: "LightGray")
+        textField.keyboardType = .emailAddress
+        textField.borderStyle = .roundedRect
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
     
     public let passwordTextField: UITextField = {
-           let textField = UITextField()
-           textField.placeholder = "Password"
-           textField.isSecureTextEntry = true
-           textField.borderStyle = .roundedRect
-           textField.translatesAutoresizingMaskIntoConstraints = false
-           return textField
-       }()
+        let textField = UITextField()
+        textField.placeholder = "Password"
+        textField.backgroundColor = UIColor(named: "LightGray")
+        textField.isSecureTextEntry = true
+        textField.borderStyle = .roundedRect
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
        
     public let showHidePasswordButton: UIButton = {
         let button = UIButton(type: .system)
@@ -48,11 +50,12 @@ public class LoginViewController: UIViewController {
     }()
        
     public let newUserLabel: UILabel = {
-           let label = UILabel()
-           label.text = "New User?"
-           label.translatesAutoresizingMaskIntoConstraints = false
-           return label
-       }()
+        let label = UILabel()
+        label.text = "New User?"
+        label.textColor = UIColor(named: "Black")
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
        
     public let registerButton: UIButton = {
         let button = UIButton(type: .system)
@@ -68,7 +71,7 @@ public class LoginViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "white")
         
         // Add subviews to the view
         view.addSubview(emailTextField)
