@@ -85,6 +85,9 @@ public class LoginViewController: UIViewController {
         view.addSubview(newUserLabel)
         view.addSubview(registerButton)
         
+        self.emailTextField.text = ""
+        self.passwordTextField.text = ""
+        
         loginButton.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
         
         // Layout constraints
