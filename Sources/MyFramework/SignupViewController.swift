@@ -123,8 +123,9 @@ public class SignupViewController: UIViewController {
             self.passwordTextField.resignFirstResponder()
             self.confirmPasswordTextField.resignFirstResponder()
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                Helper.globalToastAlert(controller: self, msg: "User registered successfully", seconds: 3.0)
+            Helper.globalToastAlert(controller: self, msg: "User registered successfully", seconds: 3.0) {
+                // Handle any additional actions after the toast is shown (e.g., dismiss the view controller)
+                self.dismiss(animated: true)
             }
             
             self.dismiss(animated: true)

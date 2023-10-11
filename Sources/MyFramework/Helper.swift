@@ -19,16 +19,19 @@ class Helper: NSObject{
     }
     
     /* ====   MARK: Global toast msg using alert   ==== */
-    class func globalToastAlert(controller: UIViewController,msg: String, seconds: Double){
+    class func globalToastAlert(controller: UIViewController, msg: String, seconds: Double, completion: (() -> Void)? = nil) {
         let alert = UIAlertController(title: nil, message: msg, preferredStyle: .alert)
         alert.view.backgroundColor = UIColor.white
         alert.view.alpha = 0.6
         alert.view.layer.cornerRadius = 15
         
         controller.present(alert, animated: true)
-
+        
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + seconds) {
-            alert.dismiss(animated: true)
+            alert.dismiss(animated: true) {
+                completion?() // Call the completion handler when dismissing
+            }
         }
     }
+
 }
