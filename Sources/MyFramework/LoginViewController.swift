@@ -110,11 +110,14 @@ public class LoginViewController: UIViewController {
             // Implement your login logic here
         }
         
-//        @objc func registerButtonTapped() {
-//            // Implement your registration logic here
-//
-//
-//        }
+        @objc func registerButtonTapped() {
+            // Implement your registration logic here
+            let vc = SignupViewController()
+            let navigationController = UINavigationController()
+            navigationController.pushViewController(vc, animated: true)
+
+
+        }
     
     /*func validate(name: String, email: String, phoneNumber: String, password: String, confirmPw: String) -> String? {
         if name.trimmingCharacters(in: .whitespaces).count == 0{
