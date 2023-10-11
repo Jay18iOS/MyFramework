@@ -108,13 +108,17 @@ public class LoginViewController: UIViewController {
         
         @objc func loginButtonTapped() {
             // Implement your login logic here
+            
         }
         
         @objc func registerButtonTapped() {
             // Implement your registration logic here
-            let vc = SignupViewController()
             let navigationController = UINavigationController()
+            
+            let vc = SignupViewController()
             navigationController.pushViewController(vc, animated: true)
+            navigationController.modalPresentationStyle = .fullScreen
+            self.present(navigationController, animated: true, completion: nil)
 
 
         }
