@@ -75,9 +75,11 @@ public class LoginViewController: UIViewController {
         view.addSubview(newUserLabel)
         view.addSubview(registerButton)
         
+        loginButton.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
+        
         // Layout constraints
         NSLayoutConstraint.activate([
-            emailTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            emailTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 140),
             emailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             emailTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             
@@ -88,6 +90,8 @@ public class LoginViewController: UIViewController {
             showHidePasswordButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 8),
             showHidePasswordButton.trailingAnchor.constraint(equalTo: passwordTextField.trailingAnchor),
             
+            loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             loginButton.topAnchor.constraint(equalTo: showHidePasswordButton.bottomAnchor, constant: 20),
             loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
@@ -95,9 +99,9 @@ public class LoginViewController: UIViewController {
             newUserLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
 //            registerButton.topAnchor.constraint(equalTo: newUserLabel.bottomAnchor, constant: 8),
-//            registerButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            registerButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            registerButton.topAnchor.constraint(equalTo: newUserLabel.topAnchor), // Align with newUserLabel's top
+           // registerButton.topAnchor.constraint(equalTo: newUserLabel.topAnchor), // Align with newUserLabel's top
             registerButton.leadingAnchor.constraint(equalTo: newUserLabel.trailingAnchor, constant: 8), // Add horizontal spa
         ])
     }
