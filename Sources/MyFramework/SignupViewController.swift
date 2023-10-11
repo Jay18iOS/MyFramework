@@ -107,6 +107,7 @@ public class SignupViewController: UIViewController {
     }
     
     @objc func registerButtonTapped() {
+        self.view.endEditing(true)
         // Handle registration logic here
         let registrationResult = SignupSDK.registerUser(name: self.nameTextField.text!, email: self.emailTextField.text!, mobile: self.mobileTextField.text!, password: self.passwordTextField.text!, confirmPw: self.confirmPasswordTextField.text!)
         
@@ -114,8 +115,10 @@ public class SignupViewController: UIViewController {
         case .success(let user):
             print("User registered successfully: \(user)")
             self.user = user
-            Helper.globalToastAlert(controller: self, msg: "User registered successfully", seconds: 3.0)
             self.dismiss(animated: true)
+            DispatchQueue.main.async {
+                Helper.globalToastAlert(controller: self, msg: "User registered successfully", seconds: 3.0)
+            }
         case .failure(let error):
             print("Registration error: \(error.errorDescription)")
             self.errorString = error.errorDescription ?? "error"
