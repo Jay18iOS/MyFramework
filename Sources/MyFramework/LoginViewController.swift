@@ -136,7 +136,8 @@ public class LoginViewController: UIViewController {
             
             // Call the completion handler with the user object
             loginCompletion?(user)
-            self.dismiss(animated: true)
+           
+            self.navigationController?.popViewController(animated: true)
         case .failure(let error):
             print("login error: \(error.errorDescription)")
             
