@@ -12,7 +12,7 @@ public class LoginViewController: UIViewController {
     public let emailTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Email"
-        textField.backgroundColor = UIColor(named: "LightGray")
+        textField.backgroundColor = UIColor(named: "GrayColor")
         textField.keyboardType = .emailAddress
         textField.borderStyle = .roundedRect
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -22,7 +22,7 @@ public class LoginViewController: UIViewController {
     public let passwordTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Password"
-        textField.backgroundColor = UIColor(named: "LightGray")
+        textField.backgroundColor = UIColor(named: "GrayColor")
         textField.isSecureTextEntry = true
         textField.borderStyle = .roundedRect
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -42,7 +42,7 @@ public class LoginViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Login", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.setTitleColor(UIColor(named: "Primary Color"), for: .normal)
+        button.setTitleColor(UIColor(named: "GreenColor"), for: .normal)
         button.layer.cornerRadius = 8.0
         button.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -60,7 +60,7 @@ public class LoginViewController: UIViewController {
     public let registerButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Register", for: .normal)
-        button.setTitleColor(UIColor(named: "Primary Color"), for: .normal)
+        button.setTitleColor(UIColor(named: "GreenColor"), for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 17)
         button.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -71,7 +71,7 @@ public class LoginViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor(named: "Black")
+        view.backgroundColor = .white
         
         // Add subviews to the view
         view.addSubview(emailTextField)
