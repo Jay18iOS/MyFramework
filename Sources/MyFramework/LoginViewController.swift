@@ -28,18 +28,19 @@ public class LoginViewController: UIViewController {
        }()
        
     public let showHidePasswordButton: UIButton = {
-           let button = UIButton(type: .system)
-           button.setTitle("Show", for: .normal)
-           button.addTarget(self, action: #selector(showHidePasswordButtonTapped), for: .touchUpInside)
-           button.translatesAutoresizingMaskIntoConstraints = false
-           return button
-       }()
+        let button = UIButton(type: .system)
+        button.setTitle("Show", for: .normal)
+        button.setTitleColor(UIColor(red: 0.0, green: 151.0/255.0, blue: 178.0/255.0, alpha: 1.0), for: .normal)
+        button.addTarget(self, action: #selector(showHidePasswordButtonTapped), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
        
     public let loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Login", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .blue
+        button.backgroundColor = UIColor(red: 0.0, green: 151.0/255.0, blue: 178.0/255.0, alpha: 1.0)
         button.layer.cornerRadius = 8.0
         button.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -56,6 +57,7 @@ public class LoginViewController: UIViewController {
     public let registerButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Register", for: .normal)
+        button.setTitleColor(UIColor(red: 0.0, green: 151.0/255.0, blue: 178.0/255.0, alpha: 1.0), for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 17)
         button.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
