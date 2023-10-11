@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class SignupViewController: UIViewController {
+public class SignupViewController: UIViewController, RegistrationResultDelegate {
     
     public let nameTextField: UITextField = {
         let textField = UITextField()
@@ -64,6 +64,8 @@ public class SignupViewController: UIViewController {
         return button
     }()
     
+    public var user : User?
+    public var errorString: String
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,6 +108,18 @@ public class SignupViewController: UIViewController {
     
     @objc func registerButtonTapped() {
         // Handle registration logic here
+        let registrationResult = SignupSDK.registerUser(name: self.nameTextField.text!, email: self.emailTextField.text!, mobile: self.mobileTextField.text!, password: self.passwordTextField.text!, confirmPw: self.confirmPasswordTextField.text!)
+        
+        switch registrationResult {
+        case .success(let user):
+            print("User registered successfully: \(user)")
+            self.user = user
+            
+        case .failure(let error):
+            print("Registration error: \(error.errorDescription)")
+            self.errorString = error.errorDescription ?? "error"
+            Helper.globalToastAlert(controller: self, msg: self.errorString, seconds: 5.0)
+        }
     }
     
     @objc func backButtonTapped() {
