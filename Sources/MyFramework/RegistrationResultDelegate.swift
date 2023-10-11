@@ -6,8 +6,8 @@
 //
 
 import Foundation
-
-public protocol RegistrationResultDelegate: class {
-    var user: User? { get set }
-    var errorString: String? { get set }
-}
+//
+//public protocol RegistrationResultDelegate: class {
+//    var user: User? { get set }
+//    var errorString: String? { get set }
+//}
