@@ -114,12 +114,12 @@ public class SignupViewController: UIViewController {
         case .success(let user):
             print("User registered successfully: \(user)")
             self.user = user
-            Helper.globalToastAlert(controller: self, msg: "User registered successfully", seconds: 5.0)
+            Helper.globalToastAlert(controller: self, msg: "User registered successfully", seconds: 3.0)
             self.dismiss(animated: true)
         case .failure(let error):
             print("Registration error: \(error.errorDescription)")
             self.errorString = error.errorDescription ?? "error"
-            Helper.globalToastAlert(controller: self, msg: self.errorString, seconds: 5.0)
+            Helper.globalToastAlert(controller: self, msg: self.errorString, seconds: 3.0)
         }
     }
     
