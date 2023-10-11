@@ -108,6 +108,12 @@ public class SignupViewController: UIViewController {
     
     @objc func registerButtonTapped() {
         self.view.endEditing(true)
+        self.nameTextField.resignFirstResponder()
+        self.emailTextField.resignFirstResponder()
+        self.mobileTextField.resignFirstResponder()
+        self.passwordTextField.resignFirstResponder()
+        self.confirmPasswordTextField.resignFirstResponder()
+        
         // Handle registration logic here
         let registrationResult = SignupSDK.registerUser(name: self.nameTextField.text!, email: self.emailTextField.text!, mobile: self.mobileTextField.text!, password: self.passwordTextField.text!, confirmPw: self.confirmPasswordTextField.text!)
         
