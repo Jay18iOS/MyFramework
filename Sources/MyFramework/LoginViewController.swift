@@ -54,12 +54,13 @@ public class LoginViewController: UIViewController {
        }()
        
     public let registerButton: UIButton = {
-           let button = UIButton(type: .system)
-           button.setTitle("Register", for: .normal)
-           button.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
-           button.translatesAutoresizingMaskIntoConstraints = false
-           return button
-       }()
+        let button = UIButton(type: .system)
+        button.setTitle("Register", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 20)
+        button.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
        
     
     public override func viewDidLoad() {
@@ -95,9 +96,9 @@ public class LoginViewController: UIViewController {
             loginButton.topAnchor.constraint(equalTo: showHidePasswordButton.bottomAnchor, constant: 20),
             
             newUserLabel.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20),
-            newUserLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            newUserLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -20),
             
-            registerButton.topAnchor.constraint(equalTo: newUserLabel.topAnchor), // Align with newUserLabel's top
+            registerButton.topAnchor.constraint(equalTo: newUserLabel.topAnchor, constant: -5), // Align with newUserLabel's top
             registerButton.leadingAnchor.constraint(equalTo: newUserLabel.trailingAnchor, constant: 8),
             
         ])
