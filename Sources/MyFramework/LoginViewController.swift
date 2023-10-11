@@ -42,7 +42,7 @@ public class LoginViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Login", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.setTitleColor(UIColor(named: "GreenColor"), for: .normal)
+        button.backgroundColor = UIColor(named: "GreenColor")
         button.layer.cornerRadius = 8.0
         button.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
