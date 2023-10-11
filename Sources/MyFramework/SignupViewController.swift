@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class SignupViewController: UIViewController, RegistrationResultDelegate {
+public class SignupViewController: UIViewController {
     
     public let nameTextField: UITextField = {
         let textField = UITextField()
@@ -65,7 +65,7 @@ public class SignupViewController: UIViewController, RegistrationResultDelegate 
     }()
     
     public var user : User?
-    public var errorString: String
+    public var errorString: String = "error"
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,7 +114,8 @@ public class SignupViewController: UIViewController, RegistrationResultDelegate 
         case .success(let user):
             print("User registered successfully: \(user)")
             self.user = user
-            
+            Helper.globalToastAlert(controller: self, msg: "User registered successfully", seconds: 5.0)
+            self.dismiss(animated: true)
         case .failure(let error):
             print("Registration error: \(error.errorDescription)")
             self.errorString = error.errorDescription ?? "error"
