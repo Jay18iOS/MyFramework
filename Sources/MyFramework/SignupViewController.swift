@@ -57,7 +57,7 @@ public class SignupViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Register", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .blue
+        button.backgroundColor = UIColor(
         button.layer.cornerRadius = 8.0
         button.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -104,6 +104,11 @@ public class SignupViewController: UIViewController {
             registerButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
         
+        // Create a tap gesture recognizer
+           let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+
+           // Add the tap gesture recognizer to the view
+           view.addGestureRecognizer(tapGesture)
     }
     
     @objc func registerButtonTapped() {
@@ -146,8 +151,12 @@ public class SignupViewController: UIViewController {
     
     @objc func backButtonTapped() {
         // Handle navigation back action here
-        //navigationController?.popViewController(animated: true)
         self.dismiss(animated: true)
+    }
+    
+    @objc func handleTap() {
+        // Dismiss the keyboard
+        view.endEditing(true)
     }
 }
 
