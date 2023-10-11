@@ -121,14 +121,21 @@ public class SignupViewController: UIViewController {
         case .success(let user):
             print("User registered successfully: \(user)")
             self.user = user
-            DispatchQueue.main.async {
-                Helper.globalToastAlert(controller: self, msg: "User registered successfully", seconds: 3.0)
-            }
+//            DispatchQueue.main.async {
+//                Helper.globalToastAlert(controller: self, msg: "User registered successfully", seconds: 3.0)
+//            }
             self.dismiss(animated: true)
         case .failure(let error):
             print("Registration error: \(error.errorDescription)")
             self.errorString = error.errorDescription ?? "error"
-            Helper.globalToastAlert(controller: self, msg: self.errorString, seconds: 3.0)
+            self.nameTextField.resignFirstResponder()
+            self.emailTextField.resignFirstResponder()
+            self.mobileTextField.resignFirstResponder()
+            self.passwordTextField.resignFirstResponder()
+            self.confirmPasswordTextField.resignFirstResponder()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                Helper.globalToastAlert(controller: self, msg: self.errorString, seconds: 3.0)
+            }
         }
     }
     
