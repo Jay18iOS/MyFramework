@@ -93,16 +93,13 @@ public class LoginViewController: UIViewController {
             loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             loginButton.topAnchor.constraint(equalTo: showHidePasswordButton.bottomAnchor, constant: 20),
-            loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             newUserLabel.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20),
-            newUserLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            newUserLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             
-//            registerButton.topAnchor.constraint(equalTo: newUserLabel.bottomAnchor, constant: 8),
-            registerButton.centerXAnchor.constraint(equalTo: newUserLabel.centerXAnchor),
+            registerButton.topAnchor.constraint(equalTo: newUserLabel.topAnchor), // Align with newUserLabel's top
+            registerButton.leadingAnchor.constraint(equalTo: newUserLabel.trailingAnchor, constant: 8),
             
-           // registerButton.topAnchor.constraint(equalTo: newUserLabel.topAnchor), // Align with newUserLabel's top
-            registerButton.leadingAnchor.constraint(equalTo: newUserLabel.trailingAnchor, constant: 8), // Add horizontal spa
         ])
     }
 
