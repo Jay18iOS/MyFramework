@@ -70,7 +70,7 @@ public class LoginViewController: UIViewController {
     }()
     
     public var user : User?
-    var loginCompletion: ((User) -> Void)?
+    public var loginCompletion: ((User) -> Void)?
     
     public override func viewDidLoad() {
         super.viewDidLoad()
