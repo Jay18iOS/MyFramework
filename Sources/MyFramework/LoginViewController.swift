@@ -36,15 +36,15 @@ public class LoginViewController: UIViewController {
        }()
        
     public let loginButton: UIButton = {
-           let button = UIButton(type: .system)
-           button.setTitle("Login", for: .normal)
-           button.backgroundColor = .blue
-           button.frame.size.height = 50
-           button.frame.size.width = 200
-           button.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
-           button.translatesAutoresizingMaskIntoConstraints = false
-           return button
-       }()
+        let button = UIButton(type: .system)
+        button.setTitle("Login", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .blue
+        button.layer.cornerRadius = 8.0
+        button.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
        
     public let newUserLabel: UILabel = {
            let label = UILabel()
@@ -64,8 +64,6 @@ public class LoginViewController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        //print(validate(name: "Pooja", email: "pooja@gmail.com", phoneNumber: "9876543210", password: "123456", confirmPw: "123456"))
         
         view.backgroundColor = .white
         
@@ -94,35 +92,34 @@ public class LoginViewController: UIViewController {
             loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             newUserLabel.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20),
-            newUserLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            newUserLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -40),
             
-            registerButton.topAnchor.constraint(equalTo: newUserLabel.bottomAnchor, constant: 8),
+            registerButton.leftAnchor.constraint(equalTo: newUserLabel.trailingAnchor, constant: 8),
+            registerButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20),
             registerButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
     }
 
     @objc func showHidePasswordButtonTapped() {
-            // Toggle the password visibility
-            passwordTextField.isSecureTextEntry.toggle()
-            showHidePasswordButton.setTitle(passwordTextField.isSecureTextEntry ? "Show" : "Hide", for: .normal)
-        }
+        // Toggle the password visibility
+        passwordTextField.isSecureTextEntry.toggle()
+        showHidePasswordButton.setTitle(passwordTextField.isSecureTextEntry ? "Show" : "Hide", for: .normal)
+    }
         
-        @objc func loginButtonTapped() {
-            // Implement your login logic here
-            
-        }
+    @objc func loginButtonTapped() {
+        // Implement your login logic here
         
-        @objc func registerButtonTapped() {
-            // Implement your registration logic here
-            let navigationController = UINavigationController()
-            
-            let vc = SignupViewController()
-            navigationController.pushViewController(vc, animated: true)
-            navigationController.modalPresentationStyle = .fullScreen
-            self.present(navigationController, animated: true, completion: nil)
-
-
-        }
+    }
+        
+    @objc func registerButtonTapped() {
+        // Implement your registration logic here
+        let navigationController = UINavigationController()
+        
+        let vc = SignupViewController()
+        navigationController.pushViewController(vc, animated: true)
+        navigationController.modalPresentationStyle = .fullScreen
+        self.present(navigationController, animated: true, completion: nil)
+    }
     
     /*func validate(name: String, email: String, phoneNumber: String, password: String, confirmPw: String) -> String? {
         if name.trimmingCharacters(in: .whitespaces).count == 0{
