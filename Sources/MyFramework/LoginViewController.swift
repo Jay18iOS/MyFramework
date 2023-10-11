@@ -12,7 +12,6 @@ public class LoginViewController: UIViewController {
     public let emailTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Email"
-//        textField.backgroundColor = UIColor(named: "GrayColor")
         textField.keyboardType = .emailAddress
         textField.borderStyle = .roundedRect
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -22,7 +21,6 @@ public class LoginViewController: UIViewController {
     public let passwordTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Password"
-//        textField.backgroundColor = UIColor(named: "GrayColor")
         textField.isSecureTextEntry = true
         textField.borderStyle = .roundedRect
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -52,7 +50,7 @@ public class LoginViewController: UIViewController {
     public let newUserLabel: UILabel = {
         let label = UILabel()
         label.text = "New User?"
-//        label.textColor = UIColor(named: "Black")
+        label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
