@@ -115,10 +115,10 @@ public class SignupViewController: UIViewController {
         case .success(let user):
             print("User registered successfully: \(user)")
             self.user = user
-            self.dismiss(animated: true)
             DispatchQueue.main.async {
                 Helper.globalToastAlert(controller: self, msg: "User registered successfully", seconds: 3.0)
             }
+            self.dismiss(animated: true)
         case .failure(let error):
             print("Registration error: \(error.errorDescription)")
             self.errorString = error.errorDescription ?? "error"
