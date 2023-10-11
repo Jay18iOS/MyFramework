@@ -12,7 +12,7 @@ public class LoginViewController: UIViewController {
     public let emailTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Email"
-        textField.backgroundColor = UIColor(named: "GrayColor")
+//        textField.backgroundColor = UIColor(named: "GrayColor")
         textField.keyboardType = .emailAddress
         textField.borderStyle = .roundedRect
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -22,7 +22,7 @@ public class LoginViewController: UIViewController {
     public let passwordTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Password"
-        textField.backgroundColor = UIColor(named: "GrayColor")
+//        textField.backgroundColor = UIColor(named: "GrayColor")
         textField.isSecureTextEntry = true
         textField.borderStyle = .roundedRect
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -42,7 +42,7 @@ public class LoginViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Login", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = UIColor(named: "GreenColor")
+        button.backgroundColor = UIColor(red: 0.0, green: 151.0/255.0, blue: 178.0/255.0, alpha: 1.0) //UIColor(named: "GreenColor")
         button.layer.cornerRadius = 8.0
         button.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -52,7 +52,7 @@ public class LoginViewController: UIViewController {
     public let newUserLabel: UILabel = {
         let label = UILabel()
         label.text = "New User?"
-        label.textColor = UIColor(named: "Black")
+//        label.textColor = UIColor(named: "Black")
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -60,7 +60,7 @@ public class LoginViewController: UIViewController {
     public let registerButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Register", for: .normal)
-        button.setTitleColor(UIColor(named: "GreenColor"), for: .normal)
+        button.setTitleColor(UIColor(red: 0.0, green: 151.0/255.0, blue: 178.0/255.0, alpha: 1.0), for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 17)
         button.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
