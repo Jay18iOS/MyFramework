@@ -42,7 +42,7 @@ public class LoginViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Login", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = UIColor(red: 0.0, green: 151.0/255.0, blue: 178.0/255.0, alpha: 1.0)
+        button.setTitleColor(UIColor(named: "Primary Color"), for: .normal)
         button.layer.cornerRadius = 8.0
         button.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -60,7 +60,7 @@ public class LoginViewController: UIViewController {
     public let registerButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Register", for: .normal)
-        button.setTitleColor(UIColor(red: 0.0, green: 151.0/255.0, blue: 178.0/255.0, alpha: 1.0), for: .normal)
+        button.setTitleColor(UIColor(named: "Primary Color"), for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 17)
         button.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -71,7 +71,7 @@ public class LoginViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor(named: "white")
+        view.backgroundColor = UIColor(named: "White")
         
         // Add subviews to the view
         view.addSubview(emailTextField)
