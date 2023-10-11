@@ -52,7 +52,7 @@ public class LoginViewController: UIViewController {
     public let newUserLabel: UILabel = {
         let label = UILabel()
         label.text = "New User?"
-        label.textColor = UIColor(named: "Black")
+        label.textColor = UIColor(named: "Black_bg")
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -71,7 +71,7 @@ public class LoginViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor(named: "White")
+        view.backgroundColor = UIColor(named: "White_bg")
         
         // Add subviews to the view
         view.addSubview(emailTextField)
