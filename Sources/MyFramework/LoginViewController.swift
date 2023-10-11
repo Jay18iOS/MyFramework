@@ -69,6 +69,7 @@ public class LoginViewController: UIViewController {
         return button
     }()
        
+    public var user : User?
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,7 +120,25 @@ public class LoginViewController: UIViewController {
         
     @objc func loginButtonTapped() {
         // Implement your login logic here
-        
+        let loginResult = LoginSDK.loginUser(email: self.emailTextField.text!, password: self.passwordTextField.text!)
+        switch loginResult {
+        case .success(let user):
+            print("User login successfully: \(user)")
+            self.user = user
+    
+            self.emailTextField.resignFirstResponder()
+            self.passwordTextField.resignFirstResponder()
+            
+        case .failure(let error):
+            print("login error: \(error.errorDescription)")
+           
+            self.emailTextField.resignFirstResponder()
+            self.passwordTextField.resignFirstResponder()
+    
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                Helper.globalToastAlert(controller: self, msg: error.errorDescription ?? "error occured", seconds: 3.0)
+            }
+        }
     }
         
     @objc func registerButtonTapped() {

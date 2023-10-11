@@ -64,9 +64,6 @@ public class SignupViewController: UIViewController {
         return button
     }()
     
-    public var user : User?
-    public var errorString: String = "error"
-    
     public override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -120,7 +117,6 @@ public class SignupViewController: UIViewController {
         switch registrationResult {
         case .success(let user):
             print("User registered successfully: \(user)")
-            self.user = user
             
             self.nameTextField.resignFirstResponder()
             self.emailTextField.resignFirstResponder()
@@ -137,14 +133,13 @@ public class SignupViewController: UIViewController {
         
         case .failure(let error):
             print("Registration error: \(error.errorDescription)")
-            self.errorString = error.errorDescription ?? "error"
             self.nameTextField.resignFirstResponder()
             self.emailTextField.resignFirstResponder()
             self.mobileTextField.resignFirstResponder()
             self.passwordTextField.resignFirstResponder()
             self.confirmPasswordTextField.resignFirstResponder()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                Helper.globalToastAlert(controller: self, msg: self.errorString, seconds: 3.0)
+                Helper.globalToastAlert(controller: self, msg: error.errorDescription ?? "", seconds: 3.0)
             }
         }
     }
