@@ -19,6 +19,9 @@ public class DemoViewController: UIViewController {
     }
     
 
- 
+    public func MyCustomFrameworkBundle() -> Bundle? {
+        let frameworkBundle = Bundle(for: DemoViewController.self)
+        return frameworkBundle
+    }
 
 }
