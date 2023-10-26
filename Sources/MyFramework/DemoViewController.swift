@@ -7,10 +7,11 @@
 
 import UIKit
 
-class DemoViewController: UIViewController {
+public class DemoViewController: UIViewController {
 
     @IBOutlet weak var WelcomLbl: UILabel!
-    override func viewDidLoad() {
+    
+    public override func viewDidLoad() {
         super.viewDidLoad()
         
         self.WelcomLbl.text = "Hello !! Pooja. Welcome 😀"
