@@ -7,6 +7,11 @@
 
 import UIKit
 
+public func MyCustomFrameworkBundle() -> Bundle? {
+    let frameworkBundle = Bundle(for: DemoViewController.self)
+    return frameworkBundle
+}
+
 public class DemoViewController: UIViewController {
 
     @IBOutlet weak var WelcomLbl: UILabel!
@@ -16,12 +21,6 @@ public class DemoViewController: UIViewController {
         
         self.WelcomLbl.text = "Hello !! Pooja. Welcome 😀"
         // Do any additional setup after loading the view.
-    }
-    
-
-    public func MyCustomFrameworkBundle() -> Bundle? {
-        let frameworkBundle = Bundle(for: DemoViewController.self)
-        return frameworkBundle
     }
 
 }
